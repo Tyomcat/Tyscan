@@ -1,4 +1,4 @@
-## web漏洞扫描神器 Tyscan v1.0
+## web漏洞扫描小工具 Tyscan v1.0
 
 **Tyscan** 是一款对带参数url进行漏洞测试的扫描器，目前支持对get型sql注入、XSS、URL重定向等漏洞的扫描.
 
