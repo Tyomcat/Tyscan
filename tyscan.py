@@ -17,6 +17,7 @@ from  BeautifulSoup import BeautifulSoup
 import socket
 import zlib
 
+
 banner = r'''
  ______
 /\__  _\
@@ -396,20 +397,23 @@ def xss(url):
 
 
 if __name__ == "__main__":
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
     print banner
     print '''
     author:tyomcat
     email:tyomcat@gmail.com
     '''
-    parser = optparse.OptionParser('Usage:\n tyscan.py -f urls.txt -d 3')
+    parser = optparse.OptionParser('Usage:\npython tyscan.py -f urls.txt -d 3')
     parser.add_option('-f', dest='urls', type='string', help='要扫描的域名')
     parser.add_option('-d', dest='depth', type='string', help='递归扫描的深度')
     (options, args) = parser.parse_args()
     tgturls = options.urls
-    crawl_deepth = int(options.depth)
+    crawl_deepth = options.depth
     if (tgturls == None) | (crawl_deepth == None):
         print parser.usage
         exit(0)
+    crawl_deepth = int(crawl_deepth)
     with open(tgturls) as f:
         urls = f.readlines()
     ll = []
